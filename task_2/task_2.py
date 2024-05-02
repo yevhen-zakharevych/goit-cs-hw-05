@@ -63,7 +63,7 @@ async def map_reduce(url, search_words=None, skipped_words=None):
     return dict(reduced_values)
 
 
-def visual_result(result):
+def visualize_top_words(result):
     top_10 = Counter(result).most_common(10)
     labels, values = zip(*top_10)
     plt.figure(figsize=(10, 5))
@@ -81,4 +81,4 @@ if __name__ == '__main__':
     skipped_words = None  # ['the', 'of', 'a', 'was', 'to', 'and', 'in', 'that', 'it', 'had', 'he', 'you', 'his']
     result = asyncio.run(map_reduce(url, search_words, skipped_words))
 
-    visual_result(result)
+    visualize_top_words(result)
